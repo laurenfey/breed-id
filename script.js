@@ -25,8 +25,8 @@ status.innerText = 'Loaded TensorFlow.js - version: ' + tf.version.tfjs;
 
 const BREED_TEXT = document.getElementById('breed');
 
-// const model = await tf.loadGraphModel('https://breed-id.herokuapp.com/model_js/model.json');
-const model = await tf.loadGraphModel('http://localhost:8000/model_js/model.json');
+const model = await tf.loadGraphModel('https://breed-id.herokuapp.com/model_js/model.json');
+// const model = await tf.loadGraphModel('http://localhost:8000/model_js/model.json');
 
 async function predictBreed(){
   const photo = document.getElementById('photo');
