@@ -11,7 +11,7 @@ Dropzone.options.upload = {
     this.on("complete", function (file) {
       myDropzone.removeFile(file);
       // document.getElementById('dogphoto').src = "uploads/image.jpg";
-      // predictBreed();
+      predictBreed();
     });
   }
 }
