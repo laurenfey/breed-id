@@ -1,4 +1,19 @@
 Dropzone.options.upload = {
+  autoProcessQueue: false,
+  init: function () {
+    var myDropzone = this;
+
+    document.getElementById('predict').addEventListener("click", function (e) {
+      e.preventDefault();
+      myDropzone.processQueue();
+    });
+
+    this.on("complete", function (file) {
+      myDropzone.removeFile(file);
+      // document.getElementById('dogphoto').src = "uploads/image.jpg";
+      // predictBreed();
+    });
+  }
 }
 
 function argMax(array) {
@@ -8,15 +23,10 @@ function argMax(array) {
 const status = document.getElementById('status');
 status.innerText = 'Loaded TensorFlow.js - version: ' + tf.version.tfjs;
 
-document.getElementById("predict").onclick = predictBreed;
-
 const BREED_TEXT = document.getElementById('breed');
 
-const DOG_PHOTO = document.getElementById('photo');
-DOG_PHOTO.src = "uploads/image.jpg"
-
-const model = await tf.loadGraphModel('https://breed-id.herokuapp.com/model_js/model.json');
-// const model = await tf.loadGraphModel('http://localhost:8000/model_js/model.json');
+// const model = await tf.loadGraphModel('https://breed-id.herokuapp.com/model_js/model.json');
+const model = await tf.loadGraphModel('http://localhost:8000/model_js/model.json');
 
 async function predictBreed(){
   const photo = document.getElementById('photo');

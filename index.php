@@ -12,29 +12,14 @@
 
     <p id="status">Awaiting TF.js load</p>
 
-    <img id="photo" src="image.jpg"></img>
+    <img id="dogphoto" src="uploads/image.jpg"></img>
 
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
     <form action='file-upload.php' class="dropzone" id="upload" name="upload" method="post" enctype="multipart/form-data">
-    <p class="dz-message">Drop photo here to upload</p>
+      <p class="dz-message">Drop photo here to upload</p>
     </form>
-
-    <!-- <form action="form-example.php" class="dropzone" id="upload"> </form>
-    <button id="uploadbutton" type="button">Upload!</button> -->
-
-    <!-- <form action="form-example.php" method="post">
-      <ul>
-        <li>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="user_name" />
-        </li>
-        <div>
-          <button>Submit</button>
-        </div>
-      </ul>
-    </form> -->
 
     <button id="predict" type="button">Predict breed!</button>
 
