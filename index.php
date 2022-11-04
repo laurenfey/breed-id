@@ -17,9 +17,14 @@
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 
-    <form action="/file-upload.php" class="dropzone"></form>
+    <form action='file-upload.php' class="dropzone" id="upload" name="upload" method="post" enctype="multipart/form-data">
+    <p class="dz-message">Drop photo here to upload</p>
+    </form>
 
-    <form action="/my-handling-form-page.php" method="post">
+    <!-- <form action="form-example.php" class="dropzone" id="upload"> </form>
+    <button id="uploadbutton" type="button">Upload!</button> -->
+
+    <!-- <form action="form-example.php" method="post">
       <ul>
         <li>
           <label for="name">Name:</label>
@@ -29,7 +34,7 @@
           <button>Submit</button>
         </div>
       </ul>
-    </form>
+    </form> -->
 
     <button id="predict" type="button">Predict breed!</button>
 
@@ -37,7 +42,6 @@
 
     <!-- Import TensorFlow.js library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js" type="text/javascript"></script>
-
     <script type="module" src="script.js" defer></script>
   </body>
 </html>
