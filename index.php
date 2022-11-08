@@ -20,13 +20,13 @@
 
     <p id="status">Awaiting TF.js load</p>
 
-    <img src="https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/kxvwr96x3sv8cdrmsbgg" crossorigin="anonymous" id="dogphoto" tag="img">
-
     <form action="file-upload.php" class="dropzone" id="upload" name="upload" method="post" enctype="multipart/form-data">
       <p class="dz-message">Drop photo here to upload</p>
     </form>
 
     <button id="predict" type="button">Predict breed!</button>
+
+    <img src="https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/kxvwr96x3sv8cdrmsbgg" crossorigin="anonymous" id="dogphoto" tag="img">
 
     <p id="breed">We think this dog is a... </p>
   </body>
