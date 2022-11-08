@@ -11,13 +11,9 @@ Dropzone.options.upload = {
       myDropzone.processQueue();
     });
 
-    this.on("complete", function (file) {
-      myDropzone.removeFile(file);
-      predictBreed();
-    });
-
     this.on("success", function(file, responseText) {
-      updateImage(responseText);
+      myDropzone.removeFile(file);
+      predictBreed(responseText);
     });
   }
 }
@@ -33,19 +29,17 @@ const status = document.getElementById("status");
 status.innerText = "Loaded TensorFlow.js - version: " + tf.version.tfjs;
 
 const breed_text = document.getElementById("breed");
+const dog_photo = document.getElementById("dogphoto");
 
 // const model = await tf.loadGraphModel("https://breed-id.herokuapp.com/model_js/model.json");
 const model = await tf.loadGraphModel("http://localhost:8000/model_js/model.json");
 
-function updateImage(image_id){
-  document.getElementById("dogphoto").url = "https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/" + image_id;
-  console.log(document.getElementById("dogphoto").url);
-}
-
-async function predictBreed(){
-  const photo = document.getElementById("dogphoto");
-  const dog = tf.expandDims(tf.browser.fromPixels(photo));
-  const dog_scaled = tf.add(tf.div(dog,127.5),-1)
-  const breed = await tf.argMax(tf.softmax(model.predict(dog_scaled)),1).array();
-  breed_text.textContent = "We think this dog is a... " + breed_names[breed[0]];
+async function predictBreed(image_id){
+  dog_photo.setAttribute("src", "https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/" + image_id);
+  dog_photo.onload = async () => {
+    const dog = tf.expandDims(tf.browser.fromPixels(dog_photo));
+    const dog_scaled = tf.add(tf.div(dog,127.5),-1)
+    const breed = await tf.argMax(tf.softmax(model.predict(dog_scaled)),1).array();
+    breed_text.textContent = "We think this dog is a... " + breed_names[breed[0]];
+  }
 }
