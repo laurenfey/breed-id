@@ -13,7 +13,6 @@ Dropzone.options.upload = {
 
     this.on("complete", function (file) {
       myDropzone.removeFile(file);
-      // document.getElementById('dogphoto').src = "uploads/image.jpg";
       predictBreed();
     });
   }
@@ -32,8 +31,8 @@ const model = await tf.loadGraphModel('https://breed-id.herokuapp.com/model_js/m
 // const model = await tf.loadGraphModel('http://localhost:8000/model_js/model.json');
 
 async function predictBreed(){
-  const photo = document.getElementById('photo');
-  const dog = tf.expandDims(tf.image.resizeBilinear(tf.browser.fromPixels(photo),[299,299]));
+  const photo = document.getElementById('dogphoto');
+  const dog = tf.expandDims(tf.browser.fromPixels(photo));
   const dog_scaled = tf.add(tf.div(dog,127.5),-1)
   const breed = await tf.argMax(tf.softmax(model.predict(dog_scaled)),1).array();
   BREED_TEXT.textContent = 'We think this dog is a... ' + breed[0];

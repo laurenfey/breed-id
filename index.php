@@ -12,7 +12,23 @@
 
     <p id="status">Awaiting TF.js load</p>
 
-    <img id="dogphoto" src="uploads/image.jpg"></img>
+    <?php
+      require_once __DIR__ . '/vendor/autoload.php';
+      use Cloudinary\Cloudinary;
+      use Cloudinary\Tag\ImageTag;
+      use Cloudinary\Transformation\Resize;
+      use Cloudinary\Transformation\Gravity;
+      use Cloudinary\Transformation\FocusOn;
+      use Cloudinary\Transformation\RoundCorners;
+      use Cloudinary\Transformation\Delivery;
+      use Cloudinary\Transformation\Format;
+
+      $cloudinary = new Cloudinary();
+      $uploader = $cloudinary->uploadApi();
+      $api = $cloudinary->adminApi();
+
+      echo ImageTag::fromParams("fmuzmhqteyb7g2qzwonk", ["id"=>"dogphoto", "crossorigin" => "anonymous"])->resize(Resize::fill()->width(299)->height(299)->gravity(Gravity::focusOn(FocusOn::face())));
+    ?>
 
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
@@ -28,5 +44,8 @@
     <!-- Import TensorFlow.js library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js" type="text/javascript"></script>
     <script type="module" src="script.js" defer></script>
+
+
+
   </body>
 </html>
