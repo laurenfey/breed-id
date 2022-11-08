@@ -31,8 +31,8 @@ status.innerText = "Loaded TensorFlow.js - version: " + tf.version.tfjs;
 const breed_text = document.getElementById("breed");
 const dog_photo = document.getElementById("dogphoto");
 
-// const model = await tf.loadGraphModel("https://breed-id.herokuapp.com/model_js/model.json");
-const model = await tf.loadGraphModel("http://localhost:8000/model_js/model.json");
+const model = await tf.loadGraphModel("https://breed-id.herokuapp.com/model_js/model.json");
+// const model = await tf.loadGraphModel("http://localhost:8000/model_js/model.json");
 
 async function predictBreed(image_id){
   dog_photo.setAttribute("src", "https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/" + image_id);
