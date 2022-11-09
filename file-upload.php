@@ -6,8 +6,7 @@
   $uploader = $cloudinary->uploadApi();
   $api = $cloudinary->adminApi();
 
-  $uploaded = $uploader->upload($_FILES["file"]["tmp_name"]);
-  // $uploaded = $uploader->upload("uploads/image.jpg");
+  $uploaded = $uploader->upload($_FILES["file"]["tmp_name"], array("format" => 'jpg'));
 
   echo $uploaded["public_id"];
 ?>

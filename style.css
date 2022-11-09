@@ -1,20 +1,33 @@
-
 body {
-  font-family: avenir;
+  font-family: Tahoma;
   margin: 2em;
   text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+
+header{
+  margin: 0px;
+  padding: 10px;
+  height: 50px;
+  background-color: #e76f51;
 }
 
 h1 {
-  color: #1A535C;
-  text-align: center;
+  color: #FFFFFF;
+  float: left;
+  font-size: 150%;
+}
+
+p {
+  color: #342E37;
 }
 
 button {
   font-family: avenir;
   font-size:100%;
-  background-color: #FF6B6B;
-  color: #F7FFF7;
+  background-color: #2a9d8f;
+  color: #FFFFFF;
   padding: 10px;
   margin: 5px 3px 5px 10px;
   align-items: center;
@@ -24,12 +37,12 @@ button {
 }
 
 button:hover {
-  background-color: #C75454;
+  background-color: #264653;
 }
 
 img {
   padding: 5px;
-  width: 200px;
+  width: 400px;
 }
 
 .dropzone {
@@ -37,11 +50,11 @@ img {
     border-radius: 5px;
     border: 2px dashed rgb(0, 135, 247);
     border-image: none;
-    max-width: 500px;
+    max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.text-center {
-  text-align: center;
+.filter-white{
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(45deg) brightness(104%) contrast(103%);
 }

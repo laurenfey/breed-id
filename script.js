@@ -1,13 +1,20 @@
+var loading_text;
+
 Dropzone.options.upload = {
   autoProcessQueue: false,
   maxFilesize: 25,
   maxFiles: 1,
   addRemoveLinks: true,
+  // acceptedFiles: ".JPEG",
   init: function () {
     var myDropzone = this;
 
     document.getElementById("predict").addEventListener("click", function (e) {
       e.preventDefault();
+      if(myDropzone.getQueuedFiles().length > 0){
+        dog_photo.setAttribute("src", "");
+        loading_text = loadingText();
+      }
       myDropzone.processQueue();
     });
 
@@ -28,15 +35,26 @@ const breed_names = JSON.parse(breed_json);
 const breed_text = document.getElementById("breed");
 const dog_photo = document.getElementById("dogphoto");
 
-const model = await tf.loadGraphModel("https://breed-spot.herokuapp.com/model_js/model.json");
-// const model = await tf.loadGraphModel("http://localhost:8000/model_js/model.json");
+// const model = await tf.loadGraphModel("https://breed-spot.herokuapp.com/model_js/model.json");
+const model = await tf.loadGraphModel("http://localhost:8000/model_js/model.json");
 
 async function predictBreed(image_id){
   dog_photo.setAttribute("src", "https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/" + image_id);
+  breed_text.textContent = "";
   dog_photo.onload = async () => {
     const dog = tf.expandDims(tf.browser.fromPixels(dog_photo));
     const dog_scaled = tf.add(tf.div(dog,127.5),-1)
     const breed = await tf.argMax(tf.softmax(model.predict(dog_scaled)),1).array();
+    clearInterval(loading_text);
     breed_text.textContent = breed_names[breed[0]];
   }
+}
+
+function loadingText(){
+  var count = 0;
+  return setInterval(function(){
+    count++;
+    var dots = new Array(count % 3 + 1).join('.');
+    document.getElementById('breed').textContent = "Calculating." + dots;
+  }, 500);
 }
