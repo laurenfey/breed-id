@@ -18,7 +18,13 @@ button {
   padding: 10px;
   margin: 5px 3px 5px 10px;
   align-items: center;
-  display: block
+  display: block;
+  border-radius: 8px;
+  border: none;
+}
+
+button:hover {
+  background-color: #C75454;
 }
 
 img {
