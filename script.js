@@ -1,6 +1,6 @@
 Dropzone.options.upload = {
   autoProcessQueue: false,
-  maxFilesize: 1,
+  maxFilesize: 25,
   maxFiles: 1,
   addRemoveLinks: true,
   init: function () {
