@@ -2,13 +2,13 @@
 body {
   font-family: avenir;
   margin: 2em;
-  background-color: #F7FFF7;
+  text-align: center;
 }
 
 h1 {
   color: #1A535C;
+  text-align: center;
 }
-
 
 button {
   font-family: avenir;
@@ -16,8 +16,9 @@ button {
   background-color: #FF6B6B;
   color: #F7FFF7;
   padding: 10px;
-  float: left;
   margin: 5px 3px 5px 10px;
+  align-items: center;
+  display: block
 }
 
 img {
@@ -33,4 +34,8 @@ img {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.text-center {
+  text-align: center;
 }
