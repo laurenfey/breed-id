@@ -9,4 +9,5 @@
   $uploaded = $uploader->upload($_FILES["file"]["tmp_name"], array("format" => 'jpg'));
 
   echo $uploaded["public_id"];
+  // echo $_FILES["file"]["tmp_name"];
 ?>

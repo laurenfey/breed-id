@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
   </head>
-  <header>
-    <h1>Spot</h1>
-    <img src="paw.svg" class="filter-white" style="float: right; height: 45px;">
-  </header>
   <body>
+    <header>
+      <h1>Spot</h1>
+      <img src="paw.svg" class="filter-white" style="float: right; height: 45px; width: 45px;">
+    </header>
+
     <!-- Import TensorFlow.js library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js" type="text/javascript"></script>
     <script type="module" src="script.js" defer></script>

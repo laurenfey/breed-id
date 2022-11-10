@@ -1,5 +1,5 @@
 body {
-  font-family: Tahoma;
+  font-family: Tahoma,Verdana,Segoe,sans-serif;
   margin: 2em;
   text-align: center;
   margin: 0px;
@@ -42,7 +42,7 @@ button:hover {
 
 img {
   padding: 5px;
-  width: 400px;
+  width: 350px;
 }
 
 .dropzone {
@@ -50,7 +50,7 @@ img {
     border-radius: 5px;
     border: 2px dashed rgb(0, 135, 247);
     border-image: none;
-    max-width: 400px;
+    max-width: 350px;
     margin-left: auto;
     margin-right: auto;
 }

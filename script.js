@@ -20,6 +20,7 @@ Dropzone.options.upload = {
 
     this.on("success", function(file, responseText) {
       myDropzone.removeFile(file);
+      console.log(responseText);
       predictBreed(responseText);
     });
   }
@@ -36,7 +37,7 @@ const breed_text = document.getElementById("breed");
 const dog_photo = document.getElementById("dogphoto");
 
 const model = await tf.loadGraphModel("https://breed-spot.herokuapp.com/model_js/model.json");
-// const model = await tf.loadGraphModel("http://localhost:8000/model_js/model.json");
+// const model = await tf.loadGraphModel("http://laurens-macbook-pro.local:3000/model_js/model.json");
 
 async function predictBreed(image_id){
   dog_photo.setAttribute("src", "https://res.cloudinary.com/diee73kqp/image/upload/c_fill,g_face,h_299,w_299/" + image_id);
@@ -54,7 +55,7 @@ function loadingText(){
   var count = 0;
   return setInterval(function(){
     count++;
-    var dots = new Array(count % 3 + 1).join('.');
-    document.getElementById('breed').textContent = "Calculating." + dots;
+    var dots = new Array(count % 4 + 1).join('.');
+    document.getElementById('breed').textContent = "Calculating" + dots;
   }, 500);
 }
