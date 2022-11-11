@@ -55,8 +55,8 @@ async function predictBreed(image_id){
     clearInterval(loading_text);
     clearInterval(calculating_text);
     breed_text.textContent = breed_names[prob_unsrt.indexOf(prob_sort[0])].split(" ").slice(1).join(" ");
-    if(prob_sort[0] < 0.8){
-      if(prob_sort[2] > 0.35){
+    if(prob_sort[0] < 0.75){
+      if(prob_sort[2] > 0.3){
         breed_text.textContent = "Most likely " + breed_names[prob_unsrt.indexOf(prob_sort[0])] + " or " + breed_names[prob_unsrt.indexOf(prob_sort[1])] + ".";
       }
       else if(prob_sort[2] > 0.2){
