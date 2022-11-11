@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -20,7 +21,6 @@
 
     <!-- Import Dropzone -->
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css">
 
     <p> Spot is a neural network that can guess your dog's breed from just a picture. </p>
 
@@ -31,7 +31,7 @@
     <button id="predict" type="button" style="display: block; margin: 0 auto;"> Click to Predict </button> <br>
 
     <img crossorigin="anonymous" id="dogphoto" tag="img"> <br>
-    <p id="breed"> </p> <br>
+    <p id="breed" style="white-space: pre;"> </p> <br>
 
     <p style="font-size:70%"";> Click <a href="https://github.com/laurenfey/spot/blob/main/spot.ipynb" target="_blank">here</a> to learn how this model was developed. </p>
 
