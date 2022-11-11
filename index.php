@@ -33,7 +33,7 @@
     <img crossorigin="anonymous" id="dogphoto" tag="img"> <br>
     <p id="breed"> </p> <br>
 
-    <p style="font-size:70%"";> Click <a href="https://github.com/laurenfey/spot" target="_blank">here</a> to learn how this model was developed. </p>
+    <p style="font-size:70%"";> Click <a href="https://github.com/laurenfey/spot/blob/main/spot.ipynb" target="_blank">here</a> to learn how this model was developed. </p>
 
   </body>
 </html>
