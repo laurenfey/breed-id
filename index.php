@@ -31,7 +31,7 @@
     <button id="predict" type="button" style="display: block; margin: 0 auto;"> Click to Predict </button> <br>
 
     <img crossorigin="anonymous" id="dogphoto" tag="img"> <br>
-    <p id="breed" style="white-space: pre;"> </p> <br>
+    <p id="breed" style="white-space: normal; width: 350px; margin:0 auto;"> </p> <br>
 
     <p style="font-size:70%"";> Click <a href="https://github.com/laurenfey/spot/blob/main/spot.ipynb" target="_blank">here</a> to learn how this model was developed. </p>
 
